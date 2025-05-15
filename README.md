@@ -1,6 +1,6 @@
 ## Unit Assignment: Kudos Board
 
-Submitted by: **NAME**
+Submitted by: Matthew Peng
 
 Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
 
