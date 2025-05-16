@@ -8,7 +8,6 @@ const prisma = new PrismaClient();
 // GET all boards
 router.get('/', async (req, res, next) => {
   try {
-    console.log('Incoming data:', req.body);
     const boards = await prisma.board.findMany({ include: { cards: true } });
     res.json(boards);
   } catch (err) {
@@ -33,6 +32,7 @@ router.get('/:id', async (req, res, next) => {
 // CREATE board
 router.post('/', validateBoard, async (req, res, next) => {
   try {
+    console.log('Incoming data:', req.body);
     const { title, category, author } = req.body;
     const board = await prisma.board.create({ data: { title, category, author } });
     res.status(201).json(board);
