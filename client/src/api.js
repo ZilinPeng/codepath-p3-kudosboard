@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://codepath-p3-kudosboard-back.onrender.com',
+  baseURL: import.meta.env.VITE_API_URL || '/api',
 });
 
 const apiService = {

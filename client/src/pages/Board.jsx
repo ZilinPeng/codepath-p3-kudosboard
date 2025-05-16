@@ -5,6 +5,8 @@ import Card from '../components/Card';
 import Button from '../components/Button';
 import Modal from '../components/Modal';
 
+const remotUrl = 'https://codepath-p3-kudosboard-back.onrender.com'
+
 export default function Board() {
   const { id } = useParams();
   const boardId = Number(id);
@@ -15,7 +17,7 @@ export default function Board() {
 
   // Fetch board and cards
   useEffect(() => {
-    fetch(`http://localhost:3001/boards/${boardId}`)
+    fetch(`${remotUrl}/boards/${boardId}`)
       .then((res) => res.json())
       .then((data) => {
         setBoard(data);
@@ -25,7 +27,7 @@ export default function Board() {
   }, [boardId]);
 
   const handleAddCard = (card) => {
-    fetch(`http://localhost:3001/cards/board/${boardId}`, {
+    fetch(`${remotUrl}/cards/board/${boardId}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(card)
@@ -42,7 +44,7 @@ export default function Board() {
     const card = cards.find((c) => c.id === cardId);
     const updatedCard = { ...card, upvotes: card.upvotes + 1 };
   
-    fetch(`http://localhost:3001/cards/${cardId}`, {
+    fetch(`${remotUrl}/cards/${cardId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedCard)
@@ -57,7 +59,7 @@ export default function Board() {
   };
 
   const handleDelete = (cardId) => {
-    fetch(`http://localhost:3001/cards/${cardId}`, {
+    fetch(`${remotUrl}/cards/${cardId}`, {
       method: 'DELETE'
     })
       .then(() => {

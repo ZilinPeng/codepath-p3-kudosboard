@@ -7,6 +7,8 @@ import Button from '../components/Button';
 import Modal from '../components/Modal';
 import NewBoardForm from '../components/NewBoardForm';
 
+const remotUrl = 'https://codepath-p3-kudosboard-back.onrender.com'
+
 export default function Home() {
   const [boards, setBoards] = useState([]);
   const [category, setCategory] = useState('All');
@@ -14,14 +16,14 @@ export default function Home() {
   const [showBoardModal, setShowBoardModal] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:3001/boards')
+    fetch(`${remotUrl}/boards`)
       .then((res) => res.json())
       .then((data) => setBoards(data))
       .catch((err) => console.error('Failed to fetch boards:', err));
   }, []);
 
   const handleAddBoard = (board) => {
-    fetch('http://localhost:3001/boards', {
+    fetch(`${remotUrl}/boards`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(board)
@@ -35,7 +37,7 @@ export default function Home() {
   };
 
   const handleDeleteBoard = (boardId) => {
-    fetch(`http://localhost:3001/boards/${boardId}`, {
+    fetch(`${remotUrl}/boards/${boardId}`, {
       method: 'DELETE'
     })
       .then(() => {
