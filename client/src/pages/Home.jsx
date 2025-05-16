@@ -13,7 +13,6 @@ export default function Home() {
   const [search, setSearch] = useState('');
   const [showBoardModal, setShowBoardModal] = useState(false);
 
-  // Fetch boards from backend
   useEffect(() => {
     fetch('http://localhost:3001/boards')
       .then((res) => res.json())

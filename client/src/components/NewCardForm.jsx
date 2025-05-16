@@ -20,8 +20,8 @@ export default function NewCardForm({ onAdd }) {
 
   const handleGifSelect = (gif) => {
     const url = gif.images.fixed_height.url;
-    setGifUrl(url); // Fill the input with selected gif URL
-  };
+    setGifUrl(url); 
+}
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ export default function NewCardForm({ onAdd }) {
       upvotes: 0,
     });
 
-    // Reset form
+
     setMessage('');
     setGifQuery('');
     setGifResults([]);
