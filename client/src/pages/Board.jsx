@@ -71,7 +71,7 @@ export default function Board() {
   return (
     <>
       <div style={{ padding: '1rem', textAlign: 'center' }}>
-        <Link to="/">← Back to Home</Link>
+        <Link to="/">click: Back to Home</Link>
         <h2>{board ? board.title : 'Loading...'}</h2>
       </div>
 
