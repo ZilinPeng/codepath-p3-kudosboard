@@ -8,6 +8,7 @@ const prisma = new PrismaClient();
 // GET all boards
 router.get('/', async (req, res, next) => {
   try {
+    console.log('Incoming data:', req.body);
     const boards = await prisma.board.findMany({ include: { cards: true } });
     res.json(boards);
   } catch (err) {
